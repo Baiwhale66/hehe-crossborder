@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>和合跨境｜调解实务指引Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --main-color:#163660;
+        }
+        .tab-btn.active{
+            background-color:#163660;
+            color:white;
+        }
+        .tab-panel{
+            display:none;
+        }
+        .tab-panel.show{
+            display:block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<nav class="bg-[#163660] text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between items-center py-3">
+            <div class="font-bold text-lg">和合跨境</div>
+            <div class="w-full md:w-auto mt-2 md:mt-0">
+                <ul class="flex flex-wrap gap-x-5 text-sm">
+                    <li><a href="index.html" class="hover:text-blue-200">首页</a></li>
+                    <li><a href="about.html" class="hover:text-blue-200">项目介绍</a></li>
+                    <li><a href="guide.html" class="hover:text-blue-200">调解实务指引Demo</a></li>
+                    <li><a href="demo.html" class="hover:text-blue-200">术语查询Demo</a></li>
+                    <li><a href="resource.html" class="hover:text-blue-200">成果资源</a></li>
+                    <li><a href="progress.html" class="hover:text-blue-200">项目进展</a></li>
+                    <li><a href="team.html" class="hover:text-blue-200">团队介绍</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-200">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="py-10 px-4 max-w-6xl mx-auto">
+    <!--原型声明 -->
+    <div class="bg-red-50 border border-red-300 text-red-800 p-4 rounded-lg mb-8">
+        ⚠️原型声明：本网页是大创项目V1.0演示原型，仅展示各调解环节示范片段。完整全套涉外调解双语操作内容，请下载PDF版《基层涉外诉讼调解双语操作指引》。内容仅供基层调解实务工作参考，不构成司法裁判依据；后续将根据合作法院试用反馈迭代升级V2.0网页版本。
+    </div>
+
+    <h1 class="text-2xl font-bold text-[#163660] mb-6">涉外纠纷诉讼调解实务指引（演示版）</h1>
+
+    <!--简易流程图示意 -->
+    <div class="bg-white p-5 rounded-lg shadow-sm mb-8">
+        <h3 class="font-semibold mb-3">涉外调解全流程示意</h3>
+        <div class="flex flex-wrap gap-2 text-sm items-center">
+            <span class="bg-gray-200 px-3 py-2 rounded">案件受理</span>
+            <span>→</span>
+            <span class="bg-gray-200 px-3 py-2 rounded">涉外送达</span>
+            <span>→</span>
+            <span class="bg-gray-200 px-3 py-2 rounded">法律查明</span>
+            <span>→</span>
+            <span class="bg-gray-200 px-3 py-2 rounded">调解前准备</span>
+            <span>→</span>
+            <span class="bg-gray-200 px-3 py-2 rounded">调解实施</span>
+            <span>→</span>
+            <span class="bg-gray-200 px-3 py-2 rounded">调解协议达成</span>
+            <span>→</span>
+            <span class="bg-gray-200 px-3 py-2 rounded">司法确认</span>
+        </div>
+    </div>
+
+    <!--Tab按钮 -->
+    <div class="flex flex-wrap gap-2 mb-6">
+        <button class="tab-btn border border-[#163660] px-3 py-2 rounded text-sm" data-tab="tab1">①案件受理</button>
+        <button class="tab-btn border border-[#163660] px-3 py-2 rounded text-sm" data-tab="tab2">②涉外送达</button>
+        <button class="tab-btn border border-[#163660] px-3 py-2 rounded text-sm" data-tab="tab3">③法律查明</button>
+        <button class="tab-btn border border-[#163660] px-3 py-2 rounded text-sm" data-tab="tab4">④调解前准备</button>
+        <button class="tab-btn border border-[#163660] px-3 py-2 rounded text-sm" data-tab="tab5">⑤调解实施</button>
+        <button class="tab-btn border border-[#163660] px-3 py-2 rounded text-sm" data-tab="tab6">⑥调解协议达成</button>
+        <button class="tab-btn border border-[#163660] px-3 py-2 rounded text-sm" data-tab="tab7">⑦司法确认</button>
+    </div>
+
+    <!--Tab内容面板 -->
+    <div class="bg-white p-6 rounded-lg shadow-sm">
+        <div id="tab1" class="tab-panel show">
+            <h3 class="font-bold text-lg mb-3">①案件受理</h3>
+            <div class="mb-4">
+                <h4 class="font-semibold">中文操作要点</h4>
+                <p>识别案件涉外因素，登记当事人国籍、境外地址信息，告知当事人涉外案件相关程序权利。</p>
+            </div>
+            <div class="mb-4">
+                <h4 class="font-semibold">调解员对外籍当事人双语沟通示例</h4>
+                <p>中文：本案属于涉外民商事案件，您依法享有相应诉讼权利。<br>English：This is a foreign‑related civil and commercial case. You enjoy corresponding procedural rights in accordance with law.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold">跨文化/风险提示</h4>
+                <p>外籍当事人可能不熟悉我国法院受理流程，应当用通俗语言解释程序，避免法律术语堆砌。</p>
+            </div>
+        </div>
+
+        <div id="tab2" class="tab-panel">
+            <h3 class="font-bold text-lg mb-3">②涉外送达</h3>
+            <div class="mb-4">
+                <h4 class="font-semibold">中文操作要点</h4>
+                <p>确认外籍当事人有效送达地址，完成送达地址确认，依照涉外民事诉讼规定选择合法送达方式。</p>
+            </div>
+            <div class="mb-4">
+                <h4 class="font-semibold">调解员对外籍当事人双语沟通示例</h4>
+                <p>中文：请确认您的接收文书的有效地址。<br>English：Please confirm your valid address for receiving legal documents.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold">跨文化/风险提示</h4>
+                <p>不同国家对文书送达形式要求存在差异，送达瑕疵会直接导致后续程序无效。</p>
+            </div>
+        </div>
+
+        <div id="tab3" class="tab-panel">
+            <h3 class="font-bold text-lg mb-3">③法律查明</h3>
+            <div class="mb-4">
+                <h4 class="font-semibold">中文操作要点</h4>
+                <p>识别案件应当适用的准据法，做好域外法律资料的查明工作，向当事人释明法律适用结果。</p>
+            </div>
+            <div class="mb-4">
+                <h4 class="font-semibold">调解员对外籍当事人双语沟通示例</h4>
+                <p>中文：本案将依据相关冲突规范确定应当适用的法律。<br>English：The applicable law for this case will be determined according to relevant conflict‑of‑laws rules.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold">跨文化/风险提示</h4>
+                <p>外方当事人容易默认适用本国法律，需要清晰释明我国涉外法律适用规则。</p>
+            </div>
+        </div>
+
+        <div id="tab4" class="tab-panel">
+            <h3 class="font-bold text-lg mb-3">④调解前准备</h3>
+            <div class="mb-4">
+                <h4 class="font-semibold">中文操作要点</h4>
+                <p>梳理双方争议焦点，准备双语告知材料，评估当事人文化背景差异，提前预判沟通障碍。</p>
+            </div>
+            <div class="mb-4">
+                <h4 class="font-semibold">调解员对外籍当事人双语沟通示例</h4>
+                <p>中文：本次调解旨在平等协商化解纠纷，您可以充分陈述自身诉求。<br>English：This mediation aims to resolve disputes through equal negotiation. You may fully state your claims.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold">跨文化/风险提示</h4>
+                <p>提前预判语言歧义，关键概念必须使用经过校验的法律英语表达。</p>
+            </div>
+        </div>
+
+        <div id="tab5" class="tab-panel">
+            <h3 class="font-bold text-lg mb-3">⑤调解实施</h3>
+            <div class="mb-4">
+                <h4 class="font-semibold">中文操作要点</h4>
+                <p>调解开始前释明调解自愿原则，保障外籍当事人充分表达意见，避免翻译偏差造成误解。</p>
+            </div>
+            <div class="mb-4">
+                <h4 class="font-semibold">调解员对外籍当事人双语沟通示例</h4>
+                <p>中文：调解是自愿的纠纷化解程序，您有权拒绝调解。<br>English：Mediation is a voluntary dispute‑resolution procedure. You have the right to refuse mediation.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold">跨文化/风险提示</h4>
+                <p>外籍当事人容易将调解理解为“强制妥协”，务必反复释明自愿原则，警惕术语翻译错误，如force majeure翻译错误案例。</p>
+            </div>
+        </div>
+
+        <div id="tab6" class="tab-panel">
+            <h3 class="font-bold text-lg mb-3">⑥调解协议达成</h3>
+            <div class="mb-4">
+                <h4 class="font-semibold">中文操作要点</h4>
+                <p>形成调解协议文本，向外籍当事人逐条解释协议条款含义，确认当事人完全理解协议内容后签字。</p>
+            </div>
+            <div class="mb-4">
+                <h4 class="font-semibold">调解员对外籍当事人双语沟通示例</h4>
+                <p>中文：请您仔细阅读调解协议每一条款，确认理解全部内容后签字。<br>English：Please read each clause of the mediation agreement carefully and sign after confirming full understanding.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold">跨文化/风险提示</h4>
+                <p>不要默认外方看懂中文文本，重要条款必须进行双语释明，防止事后以不理解条款为由反悔。</p>
+            </div>
+        </div>
+
+        <div id="tab7" class="tab-panel">
+            <h3 class="font-bold text-lg mb-3">⑦司法确认</h3>
+            <div class="mb-4">
+                <h4 class="font-semibold">中文操作要点</h4>
+                <p>告知双方司法确认程序效力，指导提交司法确认申请材料，释明确认后法律强制执行力。</p>
+            </div>
+            <div class="mb-4">
+                <h4 class="font-semibold">调解员对外籍当事人双语沟通示例</h4>
+                <p>中文：经司法确认后的调解协议具备强制执行效力。<br>English：The mediation agreement upon judicial confirmation shall have enforcement effect.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold">跨文化/风险提示</h4>
+                <p>部分境外当事人不了解我国司法确认制度，必须清晰解释法律后果。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // tab切换逻辑
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+    tabBtns[0].classList.add('active');
+    tabBtns.forEach(btn=>{
+        btn.addEventListener('click',()=>{
+            let targetId = btn.getAttribute('data-tab');
+            tabBtns.forEach(b=>b.classList.remove('active'));
+            btn.classList.add('active');
+            tabPanels.forEach(p=>p.classList.remove('show'));
+            document.getElementById(targetId).classList.add('show');
+        })
+    })
+</script>
+
+<footer class="bg-[#163660] text-white py-6 mt-10">
+    <div class="max-w-7xl mx-auto px-4 text-center text-sm">
+        西南政法大学外语学院法律英语实验班｜大学生创新创业训练计划项目 ©2026
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>和合跨境｜术语查询Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --main-color:#163660;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<nav class="bg-[#163660] text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between items-center py-3">
+            <div class="font-bold text-lg">和合跨境</div>
+            <div class="w-full md:w-auto mt-2 md:mt-0">
+                <ul class="flex flex-wrap gap-x-5 text-sm">
+                    <li><a href="index.html" class="hover:text-blue-200">首页</a></li>
+                    <li><a href="about.html" class="hover:text-blue-200">项目介绍</a></li>
+                    <li><a href="guide.html" class="hover:text-blue-200">调解实务指引Demo</a></li>
+                    <li><a href="demo.html" class="hover:text-blue-200">术语查询Demo</a></li>
+                    <li><a href="resource.html" class="hover:text-blue-200">成果资源</a></li>
+                    <li><a href="progress.html" class="hover:text-blue-200">项目进展</a></li>
+                    <li><a href="team.html" class="hover:text-blue-200">团队介绍</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-200">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="py-10 px-4 max-w-5xl mx-auto">
+    <!--原型声明 -->
+    <div class="bg-red-50 border border-red-300 text-red-800 p-4 rounded-lg mb-8">
+        ⚠️原型声明：本网页是大创项目V1.0演示原型，仅展示部分示范样例词条。完整全套术语库请下载PDF版《基层涉外诉讼调解双语常用术语表》。内容仅供基层调解实务工作参考，不构成司法裁判依据；后续将根据合作法院试用反馈迭代升级V2.0网页版本。
+    </div>
+
+    <h1 class="text-2xl font-bold text-[#163660] mb-6">双语法律术语查询Demo</h1>
+
+    <div class="bg-white p-6 rounded-lg shadow-sm">
+        <!--搜索框 -->
+        <div class="mb-5">
+            <input id="searchInput" type="text" placeholder="输入中文或者英文关键词搜索术语" class="w-full border border-gray-300 px-4 py-3 rounded-lg">
+        </div>
+        <!--分类标签 -->
+        <div class="flex flex-wrap gap-3 mb-6">
+            <button class="filter-btn bg-gray-200 px-3 py-2 rounded text-sm" data-filter="all">全部</button>
+            <button class="filter-btn bg-gray-200 px-3 py-2 rounded text-sm" data-filter="程序术语">程序术语</button>
+            <button class="filter-btn bg-gray-200 px-3 py-2 rounded text-sm" data-filter="实体法律术语">实体法律术语</button>
+            <button class="filter-btn bg-gray-200 px-3 py-2 rounded text-sm" data-filter="调解实务表达">调解实务表达</button>
+        </div>
+
+        <!--术语列表容器 -->
+        <div id="termList" class="space-y-4">
+            <!--JS渲染 -->
+        </div>
+    </div>
+</section>
+
+<script>
+//示范词条数据
+const termData = [
+    {zh:"不可抗力",en:"force majeure",desc:"适用场景：涉外调解合同纠纷案件，调解沟通向当事人解释免责事由",category:"实体法律术语"},
+    {zh:"司法确认",en:"judicial confirmation",desc:"适用场景：调解协议签署后申请司法确认程序",category:"程序术语"},
+    {zh:"诉调对接",en:"litigation‑mediation docking",desc:"适用场景：基层法院纠纷调解流转流程",category:"程序术语"},
+    {zh:"调解协议",en:"mediation agreement",desc:"适用场景：涉外案件达成的调解书面协议",category:"调解实务表达"},
+    {zh:"送达地址确认书",en:"acknowledgement of service address",desc:"适用场景：涉外案件文书送达环节",category:"程序术语"}
+];
+
+let currentFilter = "all";
+const searchInput = document.getElementById('searchInput');
+const termList = document.getElementById('termList');
+const filterBtns = document.querySelectorAll('.filter-btn');
+
+function renderList(){
+    let keyword = searchInput.value.trim().toLowerCase();
+    let result = termData.filter(item=>{
+        let matchKey = item.zh.toLowerCase().includes(keyword) || item.en.toLowerCase().includes(keyword);
+        let matchCat = (currentFilter === 'all') || item.category === currentFilter;
+        return matchKey && matchCat;
+    })
+    termList.innerHTML = '';
+    if(result.length ===0){
+        termList.innerHTML = '<div class="text-gray-500 text-center py-8">未匹配到示范词条，请调整关键词；完整术语请下载PDF文档</div>';
+        return;
+    }
+    result.forEach(t=>{
+        const div = document.createElement('div');
+        div.className = "border border-gray-200 p-4 rounded-lg";
+        div.innerHTML = `
+            <div class="font-bold text-lg text-[#163660]">${t.zh}</div>
+            <div class="text-base text-gray-700 my-1">${t.en}</div>
+            <div class="text-sm text-gray-500">${t.desc}</div>
+            <div class="mt-2 inline-block bg-gray-100 px-2 py-1 text-xs rounded">${t.category}</div>
+        `;
+        termList.appendChild(div);
+    })
+}
+
+searchInput.addEventListener('input',renderList);
+filterBtns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        filterBtns.forEach(b=>b.classList.remove('bg-[#163660]','text-white'));
+        btn.classList.add('bg-[#163660]','text-white');
+        currentFilter = btn.getAttribute('data-filter');
+        renderList();
+    })
+})
+renderList();
+</script>
+
+<footer class="bg-[#163660] text-white py-6 mt-10">
+    <div class="max-w-7xl mx-auto px-4 text-center text-sm">
+        西南政法大学外语学院法律英语实验班｜大学生创新创业训练计划项目 ©2026
+    </div>
+</footer>
+</body>
+</html>
